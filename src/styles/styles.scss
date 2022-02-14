@@ -1,0 +1,362 @@
+@import '../config/mixins.scss';
+@import '../config/variables.scss';
+@font-face {
+  font-family: "Helvetica";
+  src: url("../fonts/HelveticaNeueCyr-Roman.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Lato";
+  src: url("../fonts/latoregular.woff") format("woff");
+}
+
+body{
+  min-height: 100vh;
+  padding: 0px;
+  margin: 0px;
+}
+
+button {
+  border: none;
+  background-color: #ffffff;
+  font-family: Lato;
+  font-weight: 600;
+  font-size: 15px;
+} 
+
+button:hover {
+  color: #095297;
+}
+
+.header {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  text-align: center;
+  justify-content: space-around;
+  padding: 0 100px;  
+  background-color: #BADAED;
+
+  &__title {
+    font-family: Helvetica;
+    font-weight: 900;
+    font-size: 34px;
+    line-height: 20px;
+
+    @include mobile {
+      line-height: 35px;
+    }
+  }
+
+  &__search-movies {
+    width: 500px;
+    box-shadow: 3px -3px 1px rgba(0,0,0,0.5);
+    padding: 4px;
+
+    @include mobile {
+      margin: 10px 0px;
+    }
+  }
+}
+
+.user {
+  &__components {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    &__img {
+      height: 50px;
+      width: 50px;
+    }
+
+    &__name {
+      font-family: Lato;
+      padding: 0 5px 0px 10px;
+    }
+
+    @include mobile {
+      margin-bottom: 10px;
+    }
+  }
+
+  &__button {
+    height: 8px;
+    width: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    align-self: center;
+    padding-top: 11px;
+    font-family: Lato;
+    border: none;
+    background-color:#BADAED;
+    cursor: pointer;
+
+    &__img {
+      height: 25px;
+      width: 25px;
+    }
+  }
+
+  &__menu {
+    position: absolute;
+    width: 139px;
+    top: 60px;
+    right: 184px;
+    background-color: #BADAED;
+    @include big-desktop {
+      top: 60px;
+      right: 250px;
+    }
+
+    @include desktop {
+      top: 60px;
+      right: 150px;
+    }
+
+    @include nest {
+      top: 112px;
+      left: 458px;
+    }
+
+    @include portrait-up {
+      top: 144px;
+      left: 401px;
+    }
+
+    @include landscape-up {
+      top: 143px;
+      left: 356px;
+    }
+
+    @include mobile {
+      top: 189px;
+      left: 322px;
+    }
+
+     @include phone {
+      top: 179px;
+      left: 220px;
+    }
+
+    @include galaxy-up {
+      top: 200px;
+      left: 160px;
+    }
+
+    @include mob-down {
+      top: 240px;
+      left: 150px;
+    }
+
+    @include galaxy {
+      top: 240px;
+      left: 150px;
+    }
+
+    @include galaxy {
+      top: 240px;
+      left: 130px;
+    }
+
+    @include fold {
+      top: 240px;
+      left: 80px;
+    }
+
+    &__buttons {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      &__btn {
+        margin-bottom: 10px;
+        border: 2px solid;
+        background-color: #BADAED;
+      }
+    }
+  }
+}
+
+.wrap {
+  padding: 0 50px;
+
+  @include big-desktop {
+    padding: 0 130px;
+  }
+
+  @include mobile {
+    padding: 0 50px;
+  }
+}
+
+.movies {
+  display: flex;
+  flex-direction: column;
+
+  &__totalResults {
+    &__error {
+      padding: 50px;
+      font-family: Lato;
+      font-weight: 800;
+      font-size: 34px;
+      line-height: 19px;
+      color: #cf6476;
+      text-align: center;
+
+      @include mobile {
+        line-height: 35px;
+      }
+    }
+
+    &__active {
+      padding-left: 27px;
+      font-family: Lato;
+      font-weight: 600;
+      font-size: 24px;
+      line-height: 19px;
+      @include mobile {
+        line-height: 35px;
+      }
+    }
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 0px;
+  }
+}
+
+.movie {
+  display: flex;
+  flex-direction: column;
+  margin: 40px 25px;
+
+  &__img {
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 230px;
+    height: 300px;
+  }
+
+  &__name {
+    width: 230px;
+    margin: 0px;
+    padding: 10px 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-family: Helvetica;
+    font-weight: 800;
+    font-size: 20px;
+    line-height: 19px;
+  }
+
+  &__text {
+    margin: 0px;
+    padding: 2px 0;
+    font-family: Helvetica;
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 19px;
+  }
+}
+
+.spin-wrapper{
+  position: relative;
+  width: 100%;
+  height: 100vh;
+}
+
+.spinner{
+  position: absolute;
+  height: 60px;
+  width: 60px;
+  border: 3px solid transparent;
+  border-top-color: #519edd;
+  top: 50%;
+  left: 50%;
+  margin: -30px;
+  border-radius: 50%;
+  animation: spin 2s linear infinite;
+}
+
+.spinner:before, .spinner:after{
+    content:'';
+    position: absolute;
+    border: 3px solid transparent;
+    border-radius: 50%;
+  }
+    
+.spinner:before{
+  border-top-color: #095297;
+  top: -12px;
+  left: -12px;
+  right: -12px;
+  bottom: -12px;
+  animation: spin 3s linear infinite;
+}
+    
+.spinner:after{
+  border-top-color: #6eade0;
+  top: 6px;
+  left: 6px;
+  right: 6px;
+  bottom: 6px;  
+  animation: spin 4s linear infinite;
+}
+
+@keyframes spin{
+  0% {transform: rotate(0deg);}
+  100% {transform: rotate(360deg);}
+}
+
+.pagination {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+
+  &__pageNumbers {
+    list-style: none;
+    display: flex;
+  }
+
+  &__pageNumbers, li {
+    list-style: none;
+    display: flex;
+    border: none;
+    cursor: pointer;
+  }
+
+  &__button {
+    background-color: #ffffff;
+    border: none;
+    font-family: Lato;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 19px;
+    cursor: pointer;
+  }
+
+  &__button:hover {
+    color: #095297;
+  }
+}
+
+.pagination__pageNumbers, li, .active {
+  color: #095297;
+}
+
+.pagination__pageNumbers, button:focus {
+  outline: none;
+}
